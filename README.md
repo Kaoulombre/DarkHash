@@ -19,7 +19,7 @@ If you don't have a specific wallet for a coin, leave empty (see BEAM_WALLET for
 
 
 ## WORKER NAME 
-Put your worker name in WORKER_NAME. (Line 32)
+Put your worker name in WORKER_NAME. (Line 46)
 By default it's "helium" but you can choose any name you want.
 
 
@@ -47,7 +47,7 @@ Example with RavenCoin, BitcoinZ, BZEdge :
 ## CHOOSE FOR HOW LONG YOU WANT TO MINE BEFORE SWITCHING COIN
 
 By default, it will switch coins every hour.
-To change this, change the SWITCH_EVERY_HOUR variable. (Line 31)
+To change this, change the SWITCH_EVERY_HOUR variable. (Line 45)
 
 Example 1 (switch every 6 hours):
 	
@@ -60,7 +60,7 @@ Example 2 (switch every 12 hours):
 
 ## DONATE
 ### By default, donations are OFF ! Don't worry, I don't take any fees !
-If you want to donate to the developper, change the DONATE variable to YES (Line 35)
+If you want to donate to the developper, change the DONATE variable to YES (Line 49)
 
 After mining all the coins you selected, it will mine for 10min on the RVN2 pool on the developper wallet
 
