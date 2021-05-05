@@ -1,7 +1,7 @@
 # DarkHash
 Script for mining every coin on Dark Fiber Mines
 
-## CURRENTLY NOT WORKING : BEAM, FOXD, BZC !
+## CURRENTLY NOT WORKING : BEAM, FOXD, BZC, ZCL !
 
 You can mine as many coins as you want, and switch between them every X hours.
 
