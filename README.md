@@ -14,6 +14,7 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 
 ## WALLETS 
 Put your wallet addresses accordingly (Short names for the coins, RVN=ravencoin, LTZ=litecoinz, etc)
+
 If you don't have a specific wallet for a coin, leave empty (see BEAM_WALLET for example)
 
 
