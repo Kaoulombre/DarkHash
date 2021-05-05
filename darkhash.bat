@@ -17,19 +17,19 @@ set BEAM=NO
 set BTCZ=YES
 set BZC=NO
 set BZE=YES
-set FLUX=NO
+set FLUX=YES
 set FOXD=NO
-set LTZ=NO
+set LTZ=YES
 set RVN=YES
 set SPACE=NO
 set VDL=NO
 set XSG=NO
-set YEC=NO
-set ZCL=NO
-set ZER=NO
+set YEC=YES
+set ZCL=YES
+set ZER=YES
 
 set SWITCH_EVERY_HOUR=1
-set WORKER_NAME=helium
+set WORKER_NAME=kaoulombre
 :: DONATIONS ARE OFF BY DEFAULT !! NO FEES
 :: DONATE=YES if you want to donate. Thanks!
 set DONATE=NO
@@ -39,17 +39,12 @@ title=darkhash
 
 :loop
 
-IF %RVN% == YES (
-	call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %CHANGE_TIME%
-	timeout /t 3
-)
-
 IF %BTCZ% == YES (
 	start bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME%
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %BZE% == YES (
@@ -57,7 +52,7 @@ IF %BZE% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 
@@ -66,7 +61,7 @@ IF %LTZ% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %FOXD% == YES (
@@ -74,7 +69,7 @@ IF %FOXD% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %YEC% == YES (
@@ -82,7 +77,7 @@ IF %YEC% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %BEAM% == YES (
@@ -90,7 +85,7 @@ IF %BEAM% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %FLUX% == YES (
@@ -98,7 +93,7 @@ IF %FLUX% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %SPACE% == YES (
@@ -106,7 +101,7 @@ IF %SPACE% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %BZC% == YES (
@@ -114,7 +109,7 @@ IF %BZC% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %ZCL% == YES (
@@ -122,7 +117,7 @@ IF %ZCL% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %ZER% == YES (
@@ -130,7 +125,7 @@ IF %ZER% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %XSG% == YES (
@@ -138,7 +133,7 @@ IF %XSG% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %VDL% == YES (
@@ -146,7 +141,7 @@ IF %VDL% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
 )
 
 IF %ZEC% == YES (
@@ -154,12 +149,17 @@ IF %ZEC% == YES (
 	timeout /t %CHANGE_TIME%
 	taskkill /im miner.exe /f /t
 	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 3
+	timeout /t 10
+)
+
+IF %RVN% == YES (
+	call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %CHANGE_TIME%
+	timeout /t 10
 )
 
 IF %DONATE% == YES (
 	call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
-	timeout /t 3
+	timeout /t 10
 )
 
 goto loop
