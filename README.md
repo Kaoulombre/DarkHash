@@ -63,5 +63,6 @@ Example 2 (switch every 12 hours):
 If you want to donate to the developper, change the DONATE variable to YES (Line 35)
 
 After mining all the coins you selected, it will mine for 10min on the RVN2 pool on the developper wallet
+
 If you choose to switch every 6 hours and you selected 10 coins, you will mine 10mn every 60hours
 ### The mining donation will ALWAYS BE at the end of the cycle ! You will ALWAYS mine your coins first !
