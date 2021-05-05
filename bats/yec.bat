@@ -1,0 +1,1 @@
+miner.exe --algo 192_7 --pers ZcashPoW --server 142.4.211.28 --port 9500 --user %1.%2 --pass x

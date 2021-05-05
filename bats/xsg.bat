@@ -1,0 +1,1 @@
+miner.exe --algo 144_5 --pers sngemPoW --server 198.245.61.24:6200 --user %1.%2

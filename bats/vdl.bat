@@ -1,0 +1,1 @@
+miner.exe --server 198.245.61.24 --port 8200 --user %1.%2 --pass x --algo 192_7 --pers EquivPoW --pec

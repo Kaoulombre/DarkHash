@@ -1,0 +1,1 @@
+:: miner.exe --algo x16rv2 --server 198.100.149.160:4032 --user %1.%2

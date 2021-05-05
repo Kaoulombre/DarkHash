@@ -1,0 +1,1 @@
+miner.exe --algo 144_5 --pers BitcoinZ --server 142.4.211.28:4000 --user %1.%2 --pass x

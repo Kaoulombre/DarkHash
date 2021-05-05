@@ -1,0 +1,1 @@
+miner.exe --algo 144_5 --pers BZEZhash --server 198.100.149.170:3900 --user %1.%2 --pass x
