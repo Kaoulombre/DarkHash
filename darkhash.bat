@@ -14,22 +14,22 @@ set ZCL_WALLET=t1ZUYircJEBcZtMqjjwoJsBbRXaxAZkAQBp
 set ZER_WALLET=t1ZcGDr4RL2KP3caD24gWJvwBRpy7iXEhRx
 
 set BEAM=NO
-set BTCZ=YES
+set BTCZ=NO
 set BZC=NO
-set BZE=YES
-set FLUX=YES
+set BZE=NO
+set FLUX=NO
 set FOXD=NO
 set LTZ=YES
-set RVN=YES
+set RVN=NO
 set SPACE=NO
 set VDL=NO
 set XSG=NO
 set YEC=YES
-set ZCL=YES
+set ZCL=NO
 set ZER=YES
 
 set SWITCH_EVERY_HOUR=1
-set WORKER_NAME=helium
+set WORKER_NAME=kaoulombre
 :: DONATIONS ARE OFF BY DEFAULT !! NO FEES
 :: DONATE=YES if you want to donate. Thanks!
 set DONATE=NO
@@ -38,7 +38,6 @@ set /a CHANGE_TIME=%SWITCH_EVERY_HOUR%*3600
 title=darkhash
 
 :loop
-
 IF %BTCZ% == YES (
 	start bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME%
 	timeout /t %CHANGE_TIME%
@@ -144,14 +143,6 @@ IF %VDL% == YES (
 	timeout /t 10
 )
 
-IF %ZEC% == YES (
-	start bats\zec.bat %ZEC_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
-)
-
 IF %RVN% == YES (
 	call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %CHANGE_TIME%
 	timeout /t 10
@@ -161,5 +152,6 @@ IF %DONATE% == YES (
 	call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
 	timeout /t 10
 )
-
 goto loop
+
+pause
