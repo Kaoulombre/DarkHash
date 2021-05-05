@@ -29,7 +29,7 @@ set ZCL=NO
 set ZER=YES
 
 set SWITCH_EVERY_HOUR=1
-set WORKER_NAME=kaoulombre
+set WORKER_NAME=helium
 :: DONATIONS ARE OFF BY DEFAULT !! NO FEES
 :: DONATE=YES if you want to donate. Thanks!
 set DONATE=NO
