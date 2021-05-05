@@ -13,19 +13,33 @@ set YEC_WALLET=s1Ub5y7irLd61npqxDuNz4Xm6eFmTHqDkiz
 set ZCL_WALLET=t1ZUYircJEBcZtMqjjwoJsBbRXaxAZkAQBp
 set ZER_WALLET=t1ZcGDr4RL2KP3caD24gWJvwBRpy7iXEhRx
 
+:: BEAM Coin
 set BEAM=NO
-set BTCZ=NO
+:: BitcoinZ
+set BTCZ=YES
+:: Bitzec
 set BZC=NO
-set BZE=NO
-set FLUX=NO
+:: BZEdge
+set BZE=YES
+:: Zelcash FLUX
+set FLUX=YES
+:: FOXDCoin
 set FOXD=NO
+:: LitecoinZ
 set LTZ=YES
-set RVN=NO
+:: RavenCoin
+set RVN=YES
+:: Space Coin
 set SPACE=NO
+:: Vidulum 
 set VDL=NO
+:: Snowgem TENT
 set XSG=NO
+:: Ycash
 set YEC=YES
+:: Z Classic
 set ZCL=NO
+:: ZERO Coin
 set ZER=YES
 
 set SWITCH_EVERY_HOUR=1
