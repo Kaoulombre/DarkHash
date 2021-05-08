@@ -7,80 +7,80 @@ cls
 :loop
 IF %BTCZ% == YES (
 	start /b bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME% 
-	echo Mining BTCZ ...
-	call:switchCoins
+	echo Starting Mining BTCZ
+	call:switchCoins %BTCZ_MINING_TIME%
 )
 
 IF %BZE% == YES (
 	start /b bats\bze.bat %BZE_WALLET% %WORKER_NAME%
-	echo Mining BZE ...
+	echo Starting Mining BZE
 	call:switchCoins
 )
 
 
 IF %LTZ% == YES (
 	start /b bats\ltz.bat %LTZ_WALLET% %WORKER_NAME%
-	echo Mining LTZ ...
-	call:switchCoins
+	echo Starting Mining LTZ
+	call:switchCoins %LTZ_MINING_TIME%
 )
 
 IF %FOXD% == YES (
 	start /b bats\foxd.bat %FOXD_WALLET% %WORKER_NAME%
-	echo Mining FOXD ...
+	echo Starting Mining FOXD
 	call:switchCoins
 )
 
 IF %YEC% == YES (
 	start /b bats\yec.bat %YEC_WALLET% %WORKER_NAME%
-	echo Mining YEC ...
+	echo Starting Mining YEC
 	call:switchCoins
 )
 
 IF %BEAM% == YES (
 	start /b bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
-	echo Mining BEAM ...
+	echo Starting Mining BEAM
 	call:switchCoins
 )
 
 IF %FLUX% == YES (
 	start /b bats\flux.bat %FLUX_WALLET% %WORKER_NAME%
-	echo Mining FLUX ...
+	echo Starting Mining FLUX
 	call:switchCoins
 )
 
 IF %SPACE% == YES (
 	start /b bats\space.bat %SPACE_WALLET% %WORKER_NAME%
-	echo Mining SPACE ...
+	echo Starting Mining SPACE
 	call:switchCoins
 )
 
 IF %BZC% == YES (
 	start /b bats\bzc.bat %BZC_WALLET% %WORKER_NAME%
-	echo Mining BZC ...
+	echo Starting Mining BZC
 	call:switchCoins
 )
 
 IF %ZCL% == YES (
 	start /b bats\zcl.bat %ZCL_WALLET% %WORKER_NAME%
-	echo Mining ZCL ...
+	echo Starting Mining ZCL
 	call:switchCoins
 )
 
 IF %ZER% == YES (
 	start /b bats\zer.bat %ZER_WALLET% %WORKER_NAME%
-	echo Mining ZER ...
+	echo Starting Mining ZER
 	call:switchCoins
 )
 
 IF %XSG% == YES (
 	start /b bats\xsg.bat %XSG_WALLET% %WORKER_NAME%
-	echo Mining XSG ...
+	echo Starting Mining XSG
 	call:switchCoins
 )
 
 IF %VDL% == YES (
 	start /b bats\vdl.bat %VDL_WALLET% %WORKER_NAME%
-	echo Mining VDL ...
+	echo Starting Mining VDL
 	call:switchCoins
 )
 
@@ -105,7 +105,13 @@ IF %DONATE% == YES (
 goto loop
 
 :switchCoins
-timeout /t %CHANGE_TIME% > nul
+set SP=%~1
+IF "%~1" == "" (
+	set SP=%CHANGE_TIME%
+) ELSE (
+	set /a SP=%SP%*3600
+)
+timeout /t %SP% > nul
 taskkill /im miner.exe /f /t > nul
 taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
 echo.
