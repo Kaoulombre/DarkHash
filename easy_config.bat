@@ -224,7 +224,8 @@ set /p DONATE=Do you want to donate to the developper by mining a little bit for
 IF "%DONATE%" == "" GOTO :donationSetup
 IF NOT %DONATE% == yes GOTO :donationSetup
 set DONATE=YES
-echo [32mTHANKS A LOT[0m
+echo.
+echo     [32mTHANKS A LOT[0m
 echo.
 GOTO :writing
 :donationSetup
@@ -291,7 +292,7 @@ pause > nul
 goto:eof
 
 :askTime
-set /p ANS=For how long ? (Enter a number hours) : 
+set /p ANS=For how long ? (Enter a number in hours) : 
 set "%~1=%ANS%"
 goto:eof
 
