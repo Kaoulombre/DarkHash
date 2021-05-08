@@ -6,12 +6,13 @@ echo.
 
 echo     MAKE SURE TO EDIT YOUR config.bat FILE BEFORE !
 echo.
+
 IF %BTCZ% == YES (
 	echo.
 	echo     BitcoinZ Dashboard :
 	echo.
 	echo     https://btcz.darkfibermines.com/workers/%BTCZ_WALLET%
-	echo.	
+	echo.
 )
 
 IF %BZE% == YES (
@@ -119,6 +120,8 @@ IF %RVN% == YES (
 	echo.
 )
 
+
 echo.
 echo.
-pause
+echo Bye ! Thanks for using DarkHash
+pause >nul
