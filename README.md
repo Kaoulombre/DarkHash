@@ -90,6 +90,11 @@ Example 1 (switch every 6 hours):
 Example 2 (switch every 12 hours):
 
 	set SWITCH_EVERY_HOUR=12
+	
+	
+## GET YOUR DASHBOARDS LINKS
+
+After editing your config.bat file, you can get your dashboards links just by launching the dashboard.bat !
 
 
 ## DONATE
