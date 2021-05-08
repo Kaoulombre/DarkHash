@@ -6,7 +6,7 @@ Script for mining every coin on Dark Fiber Mines
 
 Choose what coins you want to mine and the script will switch between them for you !
 You can choose the time before switching coins, by default it will switch every hour.
-#### CURRENTLY NOT WORKING : BEAM, FOXD, BZC, ZCL !
+#### CURRENTLY NOT WORKING : FOXD, BZC, ZCL !
 
 # How to use
 
@@ -15,12 +15,16 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 - For Gminer, copy your miner.exe in the DarkHash folder. The name need to be exactly "miner.exe"
 - (NVidia Users) For T-rex, copy your t-rex.exe in the DarkHash folder. The name need to be exactly "t-rex.exe"
 - (AMD Users) For TeamRedMiner, copy your teamreadminer.exe in the DarkHash folder. The name need to be exactly "teamredminer.exe"
+- (AMD Users and only used for BEAM Mining) : Use lolMiner, copy your lolMiner.exe in the DarkHash folder. The name need to be exactly "lolMiner.exe"
+- (NVidia 4Go Cards Users and only used for BEAM Mining) : Use miniZ miner, copy your miniZ.exe in the DarkHash folder. The name need to be exactly "miniZ.exe"
 
 ### THEN, EDIT THE config.bat FILE
 ### You can launch the easy_config.bat to create a config automatically OR do it manually as follows
 
 #### If you're using AMD, change the USING_AMD to YES like this :
 	set USING_AMD=YES
+#### If you intend on mining BEAM and you have a NVIDIA card with 4Go, change NVIDIA_4GO_CARD to Yes like this : 
+	set NVIDIA_4GO_CARD=YES
 
 ## CHOOSE WHAT COINS TO MINE
 
