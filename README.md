@@ -23,7 +23,7 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 
 #### If you're using AMD, change the USING_AMD to YES like this :
 	set USING_AMD=YES
-#### If you intend on mining BEAM and you have a NVIDIA card with 4Go, change NVIDIA_4GO_CARD to Yes like this : 
+#### If you intend on mining BEAM and you have a NVIDIA card with 4G, change NVIDIA_4GO_CARD to Yes like this : 
 	set NVIDIA_4GO_CARD=YES
 
 ## CHOOSE WHAT COINS TO MINE
