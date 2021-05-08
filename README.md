@@ -19,8 +19,11 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 ## CHOOSE WHAT COINS TO MINE
 
 Put YES in front of every coin you want to mine, NO if you dont wan't to mine it.
+
 If you want to mine a coin, you will need to have a wallet address for it.
+
 No need to remove wallet addresses if you want to stop mining a coin
+
 If you don't have a specific wallet for a coin, leave empty
 
 
