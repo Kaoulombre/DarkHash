@@ -6,22 +6,18 @@ echo This script is to help you config DarkHash
 echo.
 echo [32mIf you want to answer "Yes" to a question, type : yes[0m
 echo [31mIf you want to answer "No" to a question, just hit Enter[0m
-
 echo.
 echo.
 set /p Amd=Do you have an AMD card ? : 
 IF "%Amd%" == "" GOTO :amdLabel
 IF NOT %Amd% == yes GOTO :amdLabel
-echo beforeLabel
 set Amd=YES
 GOTO :worker
 :amdLabel
 set Amd=NO
 :worker
 echo.
-echo.
 set /p WorkerName=Enter your worker name. (Can be anything, no spaces, no symbols) : 
-echo.
 echo.
 set /p SwitchChoice=Do you want to mine the same amout of time for every coin ? :
 echo.
@@ -263,61 +259,85 @@ GOTO :writing
 set DONATE=NO
 
 :writing
+ren config.bat config.bat.old 2>nul
 
 (
 echo @echo off
+echo.
+echo :: TIME is in HOURS. If you don't specify a time for a coin, this time will be used
 echo set WORKER_NAME=%WorkerName%
+echo :: Set your worker name here. You can enter any name you want, no space or symbols
 echo set SWITCH_EVERY_HOUR=%GlobalTime%
+echo :: If you have an AMD cardn set to YES
 echo set USING_AMD=%Amd%
+echo :: If you intend on mining BEAM and you have a NVIDIA card with 4G, set to YES
 echo set NVIDIA_4GO_CARD=%NVIDIA_LOW%
+echo.
+echo :: BEAM Coin
 echo set BEAM=%BEAM_CHOICE%
 echo set BEAM_WALLET=%BEAM_WALLET%
 echo set BEAM_MINING_TIME=%BEAM_TIME%
+echo :: BitcoinZ
 echo set BTCZ=%BTCZ_CHOICE%
 echo set BTCZ_WALLET=%BTCZ_WALLET%
 echo set BTCZ_MINING_TIME=%BTCZ_TIME%
+echo :: BZEdge
 echo set BZE=%BZE_CHOICE%
 echo set BZE_WALLET=%BZE_WALLET%
 echo set BZE_MINING_TIME=%BZE_TIME%
+echo :: Zelcash
 echo set FLUX=%FLUX_CHOICE%
 echo set FLUX_WALLET=%FLUX_WALLET%
 echo set FLUX_MINING_TIME=%FLUX_TIME%
+echo :: LitecoinZ
 echo set LTZ=%LTZ_CHOICE%
 echo set LTZ_WALLET=%LTZ_WALLET%
 echo set LTZ_MINING_TIME=%LTZ_TIME%
+echo :: RavenCoin
 echo set RVN=%RVN_CHOICE%
 echo set RVN_WALLET=%RVN_WALLET%
 echo set RVN_MINING_TIME=%RVN_TIME%
+echo :: Space Coin
 echo set SPACE=%SPACE_CHOICE%
 echo set SPACE_WALLET=%SPACE_WALLET%
 echo set SPACE_MINING_TIME=%SPACE_TIME%
+echo :: Vidulum
 echo set VDL=%VDL_CHOICE%
 echo set VDL_WALLET=%VDL_WALLET%
 echo set VDL_MINING_TIME=%VDL_TIME%
+echo :: Snowgem TENT
 echo set XSG=%XSG_CHOICE%
 echo set XSG_WALLET=%XSG_WALLET%
 echo set XSG_MINING_TIME=%XSG_TIME%
+echo :: Ycash
 echo set YEC=%YEC_CHOICE%
 echo set YEC_WALLET=%YEC_WALLET%
 echo set YEC_MINING_TIME=%YEC_TIME%
+echo :: ZERO Coin
 echo set ZER=%ZER_CHOICE%
 echo set ZER_WALLET=%ZER_WALLET%
 echo set ZER_MINING_TIME=%ZER_TIME%
+echo :: Z Classic
 echo set ZCL=NO
 echo set ZCL_WALLET=
 echo set ZCL_MINING_TIME=
+echo :: FOXDCoin
 echo set FOXD=NO
 echo set FOXD_WALLET=
 echo set FOXD_MINING_TIME=
+echo :: Bitzec
 echo set BZC=NO
 echo set BZC_WALLET=
 echo set BZC_MINING_TIME=
-echo set DONATE=%DONATE%
-) > new_config.bat
-
-echo [32mFile created : new_config.bat[0m
 echo.
-echo [31mIf you want to use this file, change the name to config.bat. Be sure that the new config is good before changing[0m
+echo :: DONATIONS ARE OFF BY DEFAULT. NO FEES!
+echo :: DONATE=YES if you want to donate. Thanks!
+echo set DONATE=%DONATE%
+) > config.bat
+
+echo [32mFile created : config.bat[0m
+echo.
+echo [31mIf for any reason this config doesn't work, your old config is in config.bat.old[0m
 echo.
 echo Thanks for using DarkHash !
 pause > nul
