@@ -1,171 +1,117 @@
-set BEAM_WALLET=
-set BTCZ_WALLET=t1ZQ68aM3q81gkUB9G6Fi5CXmujZQysyDEN
-set BZC_WALLET=t1W2JvfbE1ranBcPfDJ7jbuKjc4Ck8y3QyM
-set BZE_WALLET=t1ddWRt39Mnp3X12o35icVx3mWzVYjUHLAd
-set FLUX_WALLET=t1ZQ68aM3q81gkUB9G6Fi5CXmujZQysyDEN
-set FOXD_WALLET=F7uKVqX8GmJ8sdX3uxHQGPnkGxqHZ5mMu9
-set LTZ_WALLET=L1GT3uYXeR49NCpxuFyX6LjutKmGXoVaXQD
-set RVN_WALLET=RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z
-set SPACE_WALLET=RRiiAaPUE5B4pqtUQehmBymfqazsWTwYu5
-set VDL_WALLET=v1RCWRCSKmvoSNb9t4F2NMVR4t6CxxRAeE3
-set XSG_WALLET=s1Ytqk64DSFsEPNNPWHZrgEmdiVqAcGsW5T
-set YEC_WALLET=s1Ub5y7irLd61npqxDuNz4Xm6eFmTHqDkiz
-set ZCL_WALLET=t1ZUYircJEBcZtMqjjwoJsBbRXaxAZkAQBp
-set ZER_WALLET=t1ZcGDr4RL2KP3caD24gWJvwBRpy7iXEhRx
-
-:: BEAM Coin
-set BEAM=NO
-:: BitcoinZ
-set BTCZ=YES
-:: Bitzec
-set BZC=NO
-:: BZEdge
-set BZE=YES
-:: Zelcash FLUX
-set FLUX=YES
-:: FOXDCoin
-set FOXD=NO
-:: LitecoinZ
-set LTZ=YES
-:: RavenCoin
-set RVN=YES
-:: Space Coin
-set SPACE=NO
-:: Vidulum 
-set VDL=NO
-:: Snowgem TENT
-set XSG=NO
-:: Ycash
-set YEC=YES
-:: Z Classic
-set ZCL=NO
-:: ZERO Coin
-set ZER=YES
-
-set SWITCH_EVERY_HOUR=1
-set WORKER_NAME=helium
-:: DONATIONS ARE OFF BY DEFAULT !! NO FEES
-:: DONATE=YES if you want to donate. Thanks!
-set DONATE=NO
-
+call config.bat
 set /a CHANGE_TIME=%SWITCH_EVERY_HOUR%*3600
 title=darkhash
+@echo off
+cls
 
 :loop
 IF %BTCZ% == YES (
-	start bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME% 
+	echo Mining BTCZ ...
+	call:switchCoins
 )
 
 IF %BZE% == YES (
-	start bats\bze.bat %BZE_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\bze.bat %BZE_WALLET% %WORKER_NAME%
+	echo Mining BZE ...
+	call:switchCoins
 )
 
 
 IF %LTZ% == YES (
-	start bats\ltz.bat %LTZ_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\ltz.bat %LTZ_WALLET% %WORKER_NAME%
+	echo Mining LTZ ...
+	call:switchCoins
 )
 
 IF %FOXD% == YES (
-	start bats\foxd.bat %FOXD_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\foxd.bat %FOXD_WALLET% %WORKER_NAME%
+	echo Mining FOXD ...
+	call:switchCoins
 )
 
 IF %YEC% == YES (
-	start bats\yec.bat %YEC_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\yec.bat %YEC_WALLET% %WORKER_NAME%
+	echo Mining YEC ...
+	call:switchCoins
 )
 
 IF %BEAM% == YES (
-	start bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
+	echo Mining BEAM ...
+	call:switchCoins
 )
 
 IF %FLUX% == YES (
-	start bats\flux.bat %FLUX_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\flux.bat %FLUX_WALLET% %WORKER_NAME%
+	echo Mining FLUX ...
+	call:switchCoins
 )
 
 IF %SPACE% == YES (
-	start bats\space.bat %SPACE_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\space.bat %SPACE_WALLET% %WORKER_NAME%
+	echo Mining SPACE ...
+	call:switchCoins
 )
 
 IF %BZC% == YES (
-	start bats\bzc.bat %BZC_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\bzc.bat %BZC_WALLET% %WORKER_NAME%
+	echo Mining BZC ...
+	call:switchCoins
 )
 
 IF %ZCL% == YES (
-	start bats\zcl.bat %ZCL_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\zcl.bat %ZCL_WALLET% %WORKER_NAME%
+	echo Mining ZCL ...
+	call:switchCoins
 )
 
 IF %ZER% == YES (
-	start bats\zer.bat %ZER_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\zer.bat %ZER_WALLET% %WORKER_NAME%
+	echo Mining ZER ...
+	call:switchCoins
 )
 
 IF %XSG% == YES (
-	start bats\xsg.bat %XSG_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\xsg.bat %XSG_WALLET% %WORKER_NAME%
+	echo Mining XSG ...
+	call:switchCoins
 )
 
 IF %VDL% == YES (
-	start bats\vdl.bat %VDL_WALLET% %WORKER_NAME%
-	timeout /t %CHANGE_TIME%
-	taskkill /im miner.exe /f /t
-	taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash"
-	timeout /t 10
+	start /b bats\vdl.bat %VDL_WALLET% %WORKER_NAME%
+	echo Mining VDL ...
+	call:switchCoins
 )
 
 IF %RVN% == YES (
+	echo Starting RVN mining ... please wait
 	call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %CHANGE_TIME%
-	timeout /t 10
+	echo.
+	echo Switching coins ... please wait
+	echo.
+	timeout /t 10 > nul
 )
 
 IF %DONATE% == YES (
+	echo Starting Donation mining ... Thanks a lot for donating
 	call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
-	timeout /t 10
+	echo.
+	echo Thanks for the donation !
+	echo Switching coins ... please wait
+	echo.
+	timeout /t 10 > nul
 )
 goto loop
+
+:switchCoins
+timeout /t %CHANGE_TIME% > nul
+taskkill /im miner.exe /f /t > nul
+taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
+echo.
+echo Switching coins ... please wait
+echo.
+timeout /t 10 > nul
+goto:eof
 
 pause
