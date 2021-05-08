@@ -43,7 +43,15 @@ IF %YEC% == YES (
 )
 
 IF %BEAM% == YES (
-	start /b bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
+	IF %USING_AMD% == YES (
+		start /b bats\beam_amd.bat %BEAM_WALLET% %WORKER_NAME%
+	) ELSE (
+		IF %NVIDIA_4GO_CARD% == YES (
+			start /b bats\beam_low.bat %BEAM_WALLET% %WORKER_NAME%
+		) ELSE (
+			start /b bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
+		)
+	)
 	echo Starting Mining BEAM
 	call:switchCoins %BEAM_MINING_TIME%
 )
@@ -93,7 +101,7 @@ IF %VDL% == YES (
 IF %RVN% == YES (
 	echo Starting RVN mining ... please wait
 	IF %USING_AMD% == YES (
-		start /b bats\amd_rvn.bat %RVN_WALLET% %WORKER_NAME%
+		start /b bats\rvn_amd.bat %RVN_WALLET% %WORKER_NAME%
 		call:switchCoins %RVN_MINING_TIME%
 	) ELSE (
 		call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %RVN_SP%
@@ -103,22 +111,43 @@ IF %RVN% == YES (
 		timeout /t 10 > nul
 	)
 )
-
 IF %DONATE% == YES (
-	echo Starting Donation mining ... Thanks a lot for donating
+	echo [32mThanks a lot for donating[0m
+	echo.
+	echo Starting Donation mining ...please wait
 	IF %USING_AMD% == YES (
-		start /b bats\amd_rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME%
-		echo Thanks for the donation !
-		call:switchCoins 600
+		IF EXIST teamredminer.exe (
+				start /b bats\rvn_amd.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME%
+				timeout /t 600 > nul
+				taskkill /im miner.exe /f /t > nul
+				taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
+			) ELSE (
+				start /b bats\btcz.bat t1ZQ68aM3q81gkUB9G6Fi5CXmujZQysyDEN %WORKER_NAME% 
+				echo Starting Mining BTCZ
+				timeout /t 600 > nul
+				taskkill /im miner.exe /f /t > nul
+				taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
+			)
 	) ELSE (
-		call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
-		echo.
-		echo Thanks for the donation !
-		echo Switching coins ... please wait
-		echo.
-		timeout /t 10 > nul
+		IF EXIST t-rex.exe (
+			call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
+		) ELSE (
+			start /b bats\btcz.bat t1ZQ68aM3q81gkUB9G6Fi5CXmujZQysyDEN %WORKER_NAME% 
+			echo Starting Mining BTCZ
+			timeout /t 600 > nul
+			taskkill /im miner.exe /f /t > nul
+			taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
+		)
 	)
+
+	echo.
+	echo [32mThanks a lot for donating[0m
+	echo.
+	echo Switching coins ... please wait
+	echo.
+	timeout /t 10 > nul
 )
+
 goto loop
 
 :switchCoins

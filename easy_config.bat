@@ -10,10 +10,16 @@ echo [31mIf you want to answer "No" to a question, just hit Enter[0m
 echo.
 echo.
 set /p Amd=Do you have an AMD card ? : 
+echo %Amd%
+pause
 IF "%Amd%" == "" GOTO :amdLabel
 IF NOT %Amd% == yes GOTO :amdLabel
+echo beforeLabel
 set Amd=YES
+GOTO :worker
 :amdLabel
+set Amd=NO
+:worker
 echo.
 echo.
 set /p WorkerName=Enter your worker name. (Can be anything, no spaces, no symbols) : 
@@ -23,10 +29,37 @@ set /p SwitchChoice=Do you want to mine the same amout of time for every coin ? 
 echo.
 set GT=NO
 set GlobalTime=1
-IF "%SwitchChoice%" == "" GOTO :btcz
-IF NOT %SwitchChoice% == yes GOTO :btcz
+IF "%SwitchChoice%" == "" GOTO :beam
+IF NOT %SwitchChoice% == yes GOTO :beam
 set /p GlobalTime=For how long do you want to mine before switching coins ? (Enter a number in hours) : 
 set GT=YES
+
+:beam
+:: BEAM Coin (BEAM)
+set /p BEAM_CHOICE=Do you want to mine BEAM Coin (BEAM) ? : 
+echo.
+IF "%BEAM_CHOICE%" == "" GOTO :beamSetup
+IF NOT %BEAM_CHOICE% == yes GOTO :beamSetup
+set BEAM_CHOICE=YES
+IF NOT %GT% == YES (
+	set BEAM_TIME = 1
+	call:askTime BEAM_TIME
+	echo.
+)
+set BEAM_WALLET=
+call:askWallet BEAM_WALLET
+set NVIDIA_LOW=NO
+IF NOT %Amd% == YES (
+	call:askNvidiaLow NVIDIA_LOW
+)
+IF "%NVIDIA_LOW%" == "" GOTO :beamSetup
+IF NOT %NVIDIA_LOW% == yes GOTO :beamSetup
+set NVIDIA_LOW=YES
+echo.
+GOTO :btcz
+:beamSetup
+set BEAM_CHOICE=NO
+set NVIDIA_LOW=NO
 
 :btcz
 :: BitcoinZ (BTCZ)
@@ -238,6 +271,10 @@ echo @echo off
 echo set WORKER_NAME=%WorkerName%
 echo set SWITCH_EVERY_HOUR=%GlobalTime%
 echo set USING_AMD=%Amd%
+echo set NVIDIA_4GO_CARD=%NVIDIA_LOW%
+echo set BEAM=%BEAM_CHOICE%
+echo set BEAM_WALLET=%BEAM_WALLET%
+echo set BEAM_MINING_TIME=%BEAM_TIME%
 echo set BTCZ=%BTCZ_CHOICE%
 echo set BTCZ_WALLET=%BTCZ_WALLET%
 echo set BTCZ_MINING_TIME=%BTCZ_TIME%
@@ -271,9 +308,6 @@ echo set ZER_MINING_TIME=%ZER_TIME%
 echo set ZCL=NO
 echo set ZCL_WALLET=
 echo set ZCL_MINING_TIME=
-echo set BEAM=NO
-echo set BEAM_WALLET=
-echo set BEAM_MINING_TIME=
 echo set FOXD=NO
 echo set FOXD_WALLET=
 echo set FOXD_MINING_TIME=
@@ -299,4 +333,9 @@ goto:eof
 :askWallet
 set /p WALLET=Copy your wallet address : 
 set "%~1=%WALLET%"
+goto:eof
+
+:askNvidiaLow
+set /p CARD=Do you have a NVidia GPU with 4GO or less ? : 
+set "%~1=%CARD%"
 goto:eof
