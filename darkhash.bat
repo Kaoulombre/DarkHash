@@ -24,7 +24,6 @@ IF %BZE% == YES (
 	call:switchCoins %BZE_MINING_TIME%
 )
 
-
 IF %LTZ% == YES (
 	start /b bats\ltz.bat %LTZ_WALLET% %WORKER_NAME%
 	echo Starting Mining LTZ
@@ -93,21 +92,32 @@ IF %VDL% == YES (
 
 IF %RVN% == YES (
 	echo Starting RVN mining ... please wait
-	call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %RVN_SP%
-	echo.
-	echo Switching coins ... please wait
-	echo.
-	timeout /t 10 > nul
+	IF %USING_AMD% == YES (
+		start /b bats\amd_rvn.bat %RVN_WALLET% %WORKER_NAME%
+		call:switchCoins %RVN_MINING_TIME%
+	) ELSE (
+		call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %RVN_SP%
+		echo.
+		echo Switching coins ... please wait
+		echo.
+		timeout /t 10 > nul
+	)
 )
 
 IF %DONATE% == YES (
 	echo Starting Donation mining ... Thanks a lot for donating
-	call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
-	echo.
-	echo Thanks for the donation !
-	echo Switching coins ... please wait
-	echo.
-	timeout /t 10 > nul
+	IF %USING_AMD% == YES (
+		start /b bats\amd_rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME%
+		echo Thanks for the donation !
+		call:switchCoins 600
+	) ELSE (
+		call bats\rvn.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME% 600
+		echo.
+		echo Thanks for the donation !
+		echo Switching coins ... please wait
+		echo.
+		timeout /t 10 > nul
+	)
 )
 goto loop
 
