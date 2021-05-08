@@ -128,6 +128,7 @@ If you want to donate to the developper, change the DONATE variable to YES like 
 	set DONATE=YES
 
 After mining all the coins you selected, it will mine for 10min on the RVN2 pool on the developper wallet
+If you can't mine RVN, it will mine BTCZ for the same amount of time
 
 If you choose to switch every 6 hours and you selected 10 coins, you will mine 10mn every 60hours
 ### The mining donation will ALWAYS BE at the end of the cycle ! You will ALWAYS mine your coins first !
