@@ -1,4 +1,5 @@
 
+
 # DarkHash
 
 Script for mining every coin on Dark Fiber Mines
@@ -90,6 +91,20 @@ Example 1 (switch every 6 hours):
 Example 2 (switch every 12 hours):
 
 	set SWITCH_EVERY_HOUR=12
+
+## CHOOSE A SPECIFIC MINING TIME FOR DIFFERENT COINS
+
+You can mine each coin for a different amount of time if you want
+
+Enter a value in their respective variable in hours
+
+Example - RavenCoin for 6 hours, LitecoinZ for 2 hours :
+
+	:: LitecoinZ (LTZ)
+	set LTZ_MINING_TIME=2
+	
+	:: RavenCoin (RVN)
+	set RVN_MINING_TIME=6
 	
 	
 ## GET YOUR DASHBOARDS LINKS
