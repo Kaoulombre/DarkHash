@@ -10,8 +10,6 @@ echo [31mIf you want to answer "No" to a question, just hit Enter[0m
 echo.
 echo.
 set /p Amd=Do you have an AMD card ? : 
-echo %Amd%
-pause
 IF "%Amd%" == "" GOTO :amdLabel
 IF NOT %Amd% == yes GOTO :amdLabel
 echo beforeLabel
