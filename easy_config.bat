@@ -215,9 +215,18 @@ IF NOT %GT% == YES (
 set ZER_WALLET=
 call:askWallet ZER_WALLET
 echo.
-GOTO :writing
+GOTO :donation
 :zerSetup
 set ZER_CHOICE=NO
+
+:donation
+set /p DONATE=Do you want to donate to the developper by mining a little bit for him ? (Default is NO. NO FEES) :
+IF "%DONATE%" == "" GOTO :donationSetup
+IF NOT %DONATE% == yes GOTO :donationSetup
+set Amd=YES
+GOTO :writing
+:donationSetup
+set DONATE=NO
 
 :writing
 
