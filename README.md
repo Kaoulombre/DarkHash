@@ -14,7 +14,7 @@ You can choose the time before switching coins, by default it will switch every 
 You need to add the miners executable in the DarkHash folder, so you'll be sure to use a correct and safe version of your miner.
  - For T-rex, copy your t-rex.exe in the DarkHash folder. The name need to be exactly "t-rex.exe"
 - For Gminer, copy your miner.exe in the DarkHash folder. The name need to be exactly "miner.exe"
-- For TeamRedMiner, copy your teamreadminer.exe in the DarkHash folder. The name need to be exactly "teamredminer.exe"
+- (AMD Users) For TeamRedMiner, copy your teamreadminer.exe in the DarkHash folder. The name need to be exactly "teamredminer.exe"
 
 ### THEN, EDIT THE config.bat FILE
 #### If you're using AMD, change the USING_AMD to YES like this :
