@@ -17,6 +17,8 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 - (AMD Users) For TeamRedMiner, copy your teamreadminer.exe in the DarkHash folder. The name need to be exactly "teamredminer.exe"
 
 ### THEN, EDIT THE config.bat FILE
+### You can launch the easy_config.bat to create a config automatically OR do it manually as follows
+
 #### If you're using AMD, change the USING_AMD to YES like this :
 	set USING_AMD=YES
 
