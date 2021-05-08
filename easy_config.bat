@@ -223,7 +223,9 @@ set ZER_CHOICE=NO
 set /p DONATE=Do you want to donate to the developper by mining a little bit for him ? (Default is NO. NO FEES) :
 IF "%DONATE%" == "" GOTO :donationSetup
 IF NOT %DONATE% == yes GOTO :donationSetup
-set Amd=YES
+set DONATE=YES
+echo [32mTHANKS A LOT[0m
+echo.
 GOTO :writing
 :donationSetup
 set DONATE=NO
