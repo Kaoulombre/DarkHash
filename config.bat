@@ -4,6 +4,8 @@
 set SWITCH_EVERY_HOUR=1
 :: Set your worker name here. You can enter any name you want, no space or symbols
 set WORKER_NAME=helium
+:: Set this to YES if you're using AMD 
+set USING_AMD=NO
 
 :: BEAM Coin (BEAM)
 set BEAM=NO
