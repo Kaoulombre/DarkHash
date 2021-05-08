@@ -1,1 +1,1 @@
-:: miner --algo beamhash --server 142.4.213.67 --port 1690 --ssl 1 --user %1.%2 --pass x
+miner.exe --algo beamhash --server 142.4.213.67:1690 --ssl 1 --user %1.%2

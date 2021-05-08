@@ -1,0 +1,1 @@
+miniZ.exe --par=beam3 --url=ssl://%1.%2@142.4.213.67:1690 --log --extra --ocX

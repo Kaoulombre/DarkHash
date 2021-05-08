@@ -1,0 +1,1 @@
+lolMiner.exe --coin BEAM --tls 1 --pool 142.4.213.67:1690 --user %1.%2
