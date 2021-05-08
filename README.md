@@ -48,7 +48,7 @@ Example configuration for mining BTCZ, LTZ and RVN  :
 	set LTZ=YES
 	set LTZ_WALLET=L1GT3uYXeR49NCpxuFyX6LjutKmGXoVaXQD
 	:: RavenCoin (RVN)
-	set RVN=NO
+	set RVN=YES
 	set RVN_WALLET=RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z
 	:: Space Coin (SPACE)
 	set SPACE=NO
