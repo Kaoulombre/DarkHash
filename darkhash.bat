@@ -1,6 +1,12 @@
+@echo off
+cls
+
 call config.bat
+call bats\functions listing
+timeout /t 3 > nul
+
 set /a CHANGE_TIME=%SWITCH_EVERY_HOUR%*3600
-set RVN_SP=%RVN_MINING_TIME%
+set RVN_SP=%RVN_MINING_TIME%	
 IF "%RVN_MINING_TIME%" == "" GOTO :nochange
 IF NOT "%RVN_MINING_TIME%" == "" GOTO :change
 
@@ -14,47 +20,46 @@ GOTO :titling
 
 :titling
 title=darkhash
-@echo off
-cls
 
 :loop
+call bats\functions logStartLoop
 IF %BTCZ% == YES (
-	call:log BCTZ
+	call bats\functions.bat log BCTZ
 	start /b bats\btcz.bat %BTCZ_WALLET% %WORKER_NAME% 
-	echo [33mStarting Mining BTCZ[0m
+	call bats\functions.bat printYellow "Starting Mining BTCZ"
 	call:switchCoins %BTCZ_MINING_TIME%
 )
 
 IF %BZE% == YES (
-	call:log BZE
+	call bats\functions.bat log BZE
 	start /b bats\bze.bat %BZE_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining BZE[0m
+	call bats\functions.bat printYellow "Starting Mining BZE"
 	call:switchCoins %BZE_MINING_TIME%
 )
 
 IF %LTZ% == YES (
-	call:log LTZ
+	call bats\functions.bat log LTZ
 	start /b bats\ltz.bat %LTZ_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining LTZ[0m
+	call bats\functions.bat printYellow "Starting Mining LTZ"
 	call:switchCoins %LTZ_MINING_TIME%
 )
 
 IF %FOXD% == YES (
-	call:log FOXD
+	call bats\functions.bat log FOXD
 	start /b bats\foxd.bat %FOXD_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining FOXD[0m
+	call bats\functions.bat printYellow "Starting Mining FOXD"
 	call:switchCoins %FOXD_MINING_TIME%
 )
 
 IF %YEC% == YES (
-	call:log YEC
+	call bats\functions.bat log YEC
 	start /b bats\yec.bat %YEC_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining YEC[0m
+	call bats\functions.bat printYellow "Starting Mining YEC"
 	call:switchCoins %YEC_MINING_TIME%
 )
 
 IF %BEAM% == YES (
-	call:log BEAM
+	call bats\functions.bat log BEAM
 	IF %USING_AMD% == YES (
 		start /b bats\beam_amd.bat %BEAM_WALLET% %WORKER_NAME%
 	) ELSE (
@@ -64,79 +69,79 @@ IF %BEAM% == YES (
 			start /b bats\beam.bat %BEAM_WALLET% %WORKER_NAME%
 		)
 	)
-	echo [33mStarting Mining BEAM[0m
+	call bats\functions.bat printYellow "Starting Mining BEAM"
 	call:switchCoins %BEAM_MINING_TIME%
 )
 
 IF %FLUX% == YES (
-	call:log FLUX
+	call bats\functions.bat log FLUX
 	start /b bats\flux.bat %FLUX_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining FLUX[0m
+	call bats\functions.bat printYellow "Starting Mining FLUX"
 	call:switchCoins %FLUX_MINING_TIME%
 )
 
 IF %SPACE% == YES (
-	call:log SPACE
+	call bats\functions.bat log SPACE
 	start /b bats\space.bat %SPACE_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining SPACE[0m
+	call bats\functions.bat printYellow "Starting Mining SPACE"
 	call:switchCoins %SPACE_MINING_TIME%
 )
 
 IF %BZC% == YES (
-	call:log BZC
+	call bats\functions.bat log BZC
 	start /b bats\bzc.bat %BZC_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining BZC[0m
+	call bats\functions.bat printYellow "Starting Mining BZC"
 	call:switchCoins %BZC_MINING_TIME%
 )
 
 IF %ZCL% == YES (
-	call:log ZCL
+	call bats\functions.bat log ZCL
 	start /b bats\zcl.bat %ZCL_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining ZCL[0m
+	call bats\functions.bat printYellow "Starting Mining ZCL"
 	call:switchCoins %ZCL_MINING_TIME%
 )
 
 IF %ZER% == YES (
-	call:log ZER
+	call bats\functions.bat log ZER
 	start /b bats\zer.bat %ZER_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining ZER[0m
+	call bats\functions.bat printYellow "Starting Mining ZER"
 	call:switchCoins %ZER_MINING_TIME%
 )
 
 IF %XSG% == YES (
-	call:log XSG
+	call bats\functions.bat log XSG
 	start /b bats\xsg.bat %XSG_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining XSG[0m
+	call bats\functions.bat printYellow "Starting Mining XSG"
 	call:switchCoins %XSG_MINING_TIME%
 )
 
 IF %VDL% == YES (
-	call:log VDL
+	call bats\functions.bat log VDL
 	start /b bats\vdl.bat %VDL_WALLET% %WORKER_NAME%
-	echo [33mStarting Mining VDL[0m
+	call bats\functions.bat printYellow "Starting Mining VDL"
 	call:switchCoins %VDL_MINING_TIME%
 )
 
 IF %RVN% == YES (
-	call:log RVN
-	echo [33mStarting RVN mining ... please wait[0m
+	call bats\functions.bat log RVN
+	call bats\functions.bat printYellow "Starting RVN mining ... please wait"
 	IF %USING_AMD% == YES (
 		start /b bats\rvn_amd.bat %RVN_WALLET% %WORKER_NAME%
 		call:switchCoins %RVN_MINING_TIME%
 	) ELSE (
 		call bats\rvn.bat %RVN_WALLET% %WORKER_NAME% %RVN_SP%
 		echo.
-		echo Switching coins ... please wait[0m
+		echo Switching coins ... please wait"
 		echo.
 		timeout /t 10 > nul
 	)
 )
 
 IF %DONATE% == YES (
-	call:logDonation
-	echo [32mThanks a lot for donating[0m
+	call bats\functions.bat logDonation
+	call bats\functions.bat printGreen "Thanks a lot for donating"
 	echo.
-	echo [33mStarting Donation mining ...please wait[0m
+	call bats\functions.bat printYellow "Starting Donation mining ...please wait"
 	IF %USING_AMD% == YES (
 		IF EXIST teamredminer.exe (
 				start /b bats\rvn_amd.bat RSx44cGP1Ju2mccwJfE5CByADYHYqA2U8z %WORKER_NAME%
@@ -163,9 +168,9 @@ IF %DONATE% == YES (
 	)
 
 	echo.
-	echo [32mThanks a lot for donating[0m
+	call bats\functions.bat printGreen "Thanks a lot for donating"
 	echo.
-	echo [33mSwitching coins ... please wait[0m
+	call bats\functions.bat printYellow "Switching coins ... please wait"
 	echo.
 	timeout /t 10 > nul
 )
@@ -183,30 +188,10 @@ timeout /t %SP% > nul
 taskkill /im miner.exe /f /t > nul
 taskkill /im cmd.exe /f /fi "WINDOWTITLE ne darkhash" > nul
 echo.
-echo [33mSwitching coins ... please wait[0m
-call:logSwitch
+call bats\functions.bat printYellow "Switching coins ... please wait"
+call bats\functions.bat logSwitch
 echo.
 timeout /t 10 > nul
-goto:eof
-
-:getDate
-for /F "tokens=2" %%i in ('date /t') do set mydate=%%i
-set mytime=%time%
-echo Current time is %mydate%:%mytime%
-goto:eof
-
-:log
-echo %date% %time:~0,5% : Starting %~1 mining>>log.txt
-goto:eof
-
-:logDonation
-echo %date% %time:~0,5% : Starting Donation mining. Thank you!>>log.txt
-goto:eof
-
-:logSwitch
-echo %date% %time:~0,5% : Switching coins ...>>log.txt
-goto:eof
-
 goto:eof
 
 pause

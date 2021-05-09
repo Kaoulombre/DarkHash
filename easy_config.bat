@@ -4,8 +4,8 @@ cls
 echo.
 echo This script is to help you config DarkHash
 echo.
-echo [32mIf you want to answer "Yes" to a question, type : yes[0m
-echo [31mIf you want to answer "No" to a question, just hit Enter[0m
+call bats\functions.bat printGreen "If you want to answer "Yes" to a question, type : yes"
+call bats\functions.bat printRed "If you want to answer "No" to a question, just hit Enter"
 echo.
 echo.
 set /p Amd=Do you have an AMD card ? : 
@@ -252,7 +252,7 @@ IF "%DONATE%" == "" GOTO :donationSetup
 IF NOT %DONATE% == yes GOTO :donationSetup
 set DONATE=YES
 echo.
-echo     [32mTHANKS A LOT[0m
+call bats\functions.bat printGreen "THANKS A LOT"
 echo.
 GOTO :writing
 :donationSetup
@@ -335,9 +335,9 @@ echo :: DONATE=YES if you want to donate. Thanks!
 echo set DONATE=%DONATE%
 ) > config.bat
 
-echo [32mFile created : config.bat[0m
+call bats\functions.bat printGreen "File created : config.bat"
 echo.
-echo [31mIf for any reason this config doesn't work, your old config is in config.bat.old[0m
+call bats\functions.bat printRed "If for any reason this config doesn't work, your old config is in config.bat.old"
 echo.
 echo Thanks for using DarkHash !
 pause > nul
@@ -354,6 +354,6 @@ set "%~1=%WALLET%"
 goto:eof
 
 :askNvidiaLow
-set /p CARD=Do you have a NVidia GPU with 4GO or less ? : 
+set /p CARD=Do you have a NVidia GPU with 4GB or less ? : 
 set "%~1=%CARD%"
 goto:eof
