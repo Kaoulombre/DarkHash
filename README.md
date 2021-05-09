@@ -19,11 +19,12 @@ You need to add the miners executable in the DarkHash folder, so you'll be sure 
 - (NVidia 4Go Cards Users and only used for BEAM Mining) : Use miniZ miner, copy your miniZ.exe in the DarkHash folder. The name need to be exactly "miniZ.exe"
 
 ### THEN, EDIT THE config.bat FILE
+### If you already had a config file in an older version of DarkHash, you can use the import_old_config.bat file
 ### You can launch the easy_config.bat to create a config automatically OR do it manually as follows
 
 #### If you're using AMD, change the USING_AMD to YES like this :
 	set USING_AMD=YES
-#### If you intend on mining BEAM and you have a NVIDIA card with 4G, change NVIDIA_4GO_CARD to Yes like this : 
+#### If you intend on mining BEAM and you have a NVIDIA card with 4Gb, change NVIDIA_4GO_CARD to Yes like this : 
 	set NVIDIA_4GO_CARD=YES
 
 ## CHOOSE WHAT COINS TO MINE
@@ -128,6 +129,7 @@ If you want to donate to the developper, change the DONATE variable to YES like 
 	set DONATE=YES
 
 After mining all the coins you selected, it will mine for 10min on the RVN2 pool on the developper wallet
+
 If you can't mine RVN, it will mine BTCZ for the same amount of time
 
 If you choose to switch every 6 hours and you selected 10 coins, you will mine 10mn every 60hours
